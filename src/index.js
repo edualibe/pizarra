@@ -8,6 +8,7 @@ const session = require('express-session');
 const passport = require('passport');
 const MySQLStore = require('express-mysql-session')(session);
 const bodyParser = require('body-parser');
+const socketio = require('socket.io');
 
 const { database } = require('./keys');
 
@@ -45,8 +46,13 @@ app.use((req, res, next) => {
     next();
   });
 
-app.use(routes);
 
-app.listen(app.get('port'),()=>{
+const server = app.listen(app.get('port'),()=>{
     console.log('Server on http://localhost:'+app.get('port'));
 });
+
+const io = socketio(server);
+
+require('./sockets.js')(io);
+
+app.use(routes);
