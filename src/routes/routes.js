@@ -11,7 +11,7 @@ router.get('/',isActivesession, (req,res)=>{
 
 */
 
-router.get('/',(req,res)=>{
+router.get('/:id_suc',(req,res)=>{
     res.render('index.hbs');
 });
 
