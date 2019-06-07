@@ -11,8 +11,12 @@ router.get('/',isActivesession, (req,res)=>{
 
 */
 
-router.get('/:id_suc',(req,res)=>{
+router.get('/suc/:id_suc',(req,res)=>{
     res.render('index.hbs');
+});
+
+router.get('/admin',(req,res)=>{
+    res.render('admin.hbs');
 });
 
 module.exports = router;

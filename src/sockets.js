@@ -8,7 +8,7 @@ module.exports = function(io){
         socket.on('url:req', async (data_url)=>{ //cliente le responde con un nuevo evento informandole url
             //funcion que lee fragmento de url (pathname) enviado por el cliente y obtiene el parametro id de sucursal
             const id_suc = (url_param)=>{
-                let id = url_param.replace('/','');
+                let id = url_param.replace('/suc/','');
                 return parseInt(id);
             };
             const data_encabezado = 'Leyendo datos de suc: ' + id_suc(data_url.url);
