@@ -18,4 +18,13 @@ $(document).ready(()=>{
 
     });
 
+    $("#btn_enviar").click(()=>{
+        console.log('enviando datos al servidor');
+        let var1 = $("#txt_var1").val();
+        console.log('datos obtenidos: ' + var1);
+        socket.emit('actualizar-base',{
+            valor1: var1
+        });
+    });
+
 });
