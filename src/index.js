@@ -48,7 +48,7 @@ app.use((req, res, next) => {
 
 
 const server = app.listen(app.get('port'),()=>{
-    console.log('Server on http://localhost:'+app.get('port'));
+    console.log('Server on http://localhost:'+app.get('port')+'/suc/1');
 });
 
 const io = socketio(server);

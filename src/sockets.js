@@ -1,38 +1,43 @@
+const pool = require('./database.js');
+
 module.exports = function(io){
 
+    //escuchando conexion del socket
     io.sockets.on('connection', (socket) => {
         console.log('Nuevo cliente conectado');
-        var inicial = 'Valor Inicial';
-        nueva_conexion(socket, inicial);
+        nueva_conexion(socket);
 
-        socket.on('actualizar-base',(data)=>{
-            console.log('escuchando evento actualizar');
+        //escuchando evento de actualizacion en bd desde el modulo admin
+        socket.on('actualizar-base', async (data)=>{
             //actualizar base de datos con los parametros recibidos en data
-            var valornuevo = data.valor1;
-            //nueva_conexion(io,valornuevo);
-            actualizar_datos(io,valornuevo);
+            const sucursal_id = 1;
+            const row = {
+                header_value1_1: data.valor1,
+                header_value1_2: data.valor2
+            };
+            await pool.query('UPDATE header set ? WHERE sucursal_id = ?', [row, sucursal_id]);
+            //envia evento a todos los clientes coknectados para que se recarguen y actualicen informacion mostrada
+            socket.broadcast.emit('pagina:recargar');
         });
-    
-
-
     });
 
 
 
 };
 
-function nueva_conexion(socket,data){
+function nueva_conexion(socket){
 
-    socket.emit('peticion'); //emite al cliente evento informando nueva conexion y solicitandole su url actual
-    socket.on('url:req', async (data_url)=>{ //cliente le responde con un nuevo evento informandole url
+    //emite al cliente evento 'peticion' solicitandole que le envie su url actual
+    socket.emit('peticion');
+    //queda a la espera de la respuesta del cliente para conocer su url
+    socket.on('url:req', async (data_url)=>{ 
         //funcion que lee fragmento de url (pathname) enviado por el cliente y obtiene el parametro id de sucursal
         const id_suc = (url_param)=>{
             let id = url_param.replace('/suc/','');
             return parseInt(id);
         };
-        const data_encabezado = 'Valor Obtenido: ' + data;
         //hace consulta de datos a bd
-        /*const data = await pool.query('SELECT * FROM header WHERE sucursal_id = ?', [id_suc(data_url.url)]);
+        const data = await pool.query('SELECT * FROM header WHERE sucursal_id = ?', [id_suc(data_url.url)]);
         const row_img_1 = (data[0].header_content_1).split(',');
         const row_img_2 = (data[0].header_content_2).split(',');
         const row_img_3 = (data[0].header_content_3).split(',');
@@ -81,17 +86,10 @@ function nueva_conexion(socket,data){
                 "img_3": ""
             };
         }
-        */
         //emite nuevo evento al cliente pasandole los datos encontrados en la bd para que los muestre en el navegador
-        console.log('emitiendo datos para actualizar pagina: ' + data_encabezado);
         socket.emit('pagina:cargar', data_encabezado);
     });
 
 
 
-};
-
-function actualizar_datos(io,data){
-    var data_encabezado = 'Valor Obtenido: ' + data
-    io.sockets.emit('pagina:cargar', data_encabezado);
 };
