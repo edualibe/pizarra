@@ -1,3 +1,8 @@
+var procesoslider;
+var imagenes_1 = [];
+var imagenes_2 = [];
+var imagenes_3 = [];
+
 $(document).ready(()=>{
 
     const socket = io();
@@ -11,14 +16,35 @@ $(document).ready(()=>{
 
     //escucha evento de carga de pagina recibiendo datos del servidor que seran mostrados en la pantalla del cliente
     socket.on('pagina:cargar', (data)=>{
-
-        var parrafo = `
-            <p>${data.valor1_1}</p>
-            <p>${data.valor1_2}</p>
+        imagenes_1 = [];
+        imagenes_1 = data.img_1;
+        $('#img-slider').attr('src','../img/'+imagenes_1[0]);        
+        var tabla = `
+            <table class="tabla-cotizador">
+            <thead>
+                <td colspan="2">${data.thead1}</td>
+                <td colspan="2">${data.thead2}</td>
+                <td colspan="2">${data.thead3}</td>
+            </thead>
+            <tr>
+                <td>${data.sub_thead1_1}</td>
+                <td>${data.sub_thead1_2}</td>
+                <td>${data.sub_thead2_1}</td>
+                <td>${data.sub_thead2_2}</td>
+                <td>${data.sub_thead3_1}</td>
+                <td>${data.sub_thead3_2}</td>
+            </tr>
+            <tr>
+                <td>${data.valor1_1}</td>
+                <td>${data.valor1_2}</td>
+                <td>${data.valor2_1}</td>
+                <td>${data.valor2_2}</td>
+                <td>${data.valor3_1}</td>
+                <td>${data.valor3_2}</td>
+            </tr>
+            </table>
         `;
-        $('#contenido').html(parrafo);        
-
-
+        $('#contenedor-cotizador').html(tabla);    
     });
 
     //evento que escucha orden de recargar la pagina para actualizar datos en pantalla
@@ -37,5 +63,11 @@ $(document).ready(()=>{
             valor2: val_txt2
         });
     });
+
+
+    procesoslider = setInterval(function(){
+        var indice = Math.floor(Math.random()*(imagenes_1.length));
+        $('#img-slider').attr('src','../img/'+imagenes_1[indice]);        
+    },5000);
 
 });

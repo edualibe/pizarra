@@ -1,3 +1,4 @@
+//conexion a la bd
 const pool = require('./database.js');
 
 module.exports = function(io){
@@ -38,12 +39,12 @@ function nueva_conexion(socket){
         };
         //hace consulta de datos a bd
         const data = await pool.query('SELECT * FROM header WHERE sucursal_id = ?', [id_suc(data_url.url)]);
-        const row_img_1 = (data[0].header_content_1).split(',');
-        const row_img_2 = (data[0].header_content_2).split(',');
-        const row_img_3 = (data[0].header_content_3).split(',');
         if (data.length>0){
             //crear objeto json con datos encontrados
-            var data_encabezado = {
+                const row_img_1 = (data[0].header_content_1).split(',');
+                const row_img_2 = (data[0].header_content_2).split(',');
+                const row_img_3 = (data[0].header_content_3).split(',');
+                var data_encabezado = {
                 "thead1": data[0].header_title1,
                 "thead2": data[0].header_title2,
                 "thead3": data[0].header_title3,
