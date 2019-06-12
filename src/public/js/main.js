@@ -1,4 +1,6 @@
 var procesoslider;
+var indice=0;
+var indiceanterior=0;
 var imagenes_1 = [];
 var imagenes_2 = [];
 var imagenes_3 = [];
@@ -18,7 +20,9 @@ $(document).ready(()=>{
     socket.on('pagina:cargar', (data)=>{
         imagenes_1 = [];
         imagenes_1 = data.img_1;
-        $('#img-slider').attr('src','../img/'+imagenes_1[0]);        
+        $("#img-slider").fadeOut(500);
+        $('#img-slider').attr('src','../img/'+imagenes_1[0]);
+        $("#img-slider").fadeIn(500);        
         var tabla = `
             <table class="tabla-cotizador">
             <thead>
@@ -64,10 +68,15 @@ $(document).ready(()=>{
         });
     });
 
-
     procesoslider = setInterval(function(){
-        var indice = Math.floor(Math.random()*(imagenes_1.length));
-        $('#img-slider').attr('src','../img/'+imagenes_1[indice]);        
-    },5000);
+        do {
+            indice = Math.floor(Math.random()*(imagenes_1.length));
+        } while (indice==indiceanterior);
+        $("#img-slider").fadeOut(800,function(){
+            $('#img-slider').attr('src','../img/'+imagenes_1[indice]);
+            $("#img-slider").fadeIn(800);                        
+            indiceanterior = indice;
+        });
+    },10000);
 
 });

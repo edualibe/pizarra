@@ -32,11 +32,6 @@ function nueva_conexion(socket){
     socket.emit('peticion');
     //queda a la espera de la respuesta del cliente para conocer su url
     socket.on('url:req', async (data_url)=>{ 
-        //funcion que lee fragmento de url (pathname) enviado por el cliente y obtiene el parametro id de sucursal
-        const id_suc = (url_param)=>{
-            let id = url_param.replace('/suc/','');
-            return parseInt(id);
-        };
         //trycatch para conrolar error en ruta /admin
         try {
             //hace consulta de datos a bd
@@ -90,9 +85,15 @@ function nueva_conexion(socket){
                 };
             }
         } catch (error) {
-            console.log(error.error);
+            return;
         }
         //emite nuevo evento al cliente pasandole los datos encontrados en la bd para que los muestre en el navegador
         socket.emit('pagina:cargar', data_encabezado);
     });            
+};
+
+//funcion que lee fragmento de url (pathname) enviado por el cliente y obtiene el parametro id de sucursal
+function id_suc(url_param){
+    let id = url_param.replace('/suc/','');
+    return parseInt(id);
 };
