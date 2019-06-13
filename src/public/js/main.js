@@ -68,11 +68,11 @@ $(document).ready(()=>{
         });
     });
 
-    procesoslider = setInterval(function(){
+    procesoslider = setInterval(()=>{
         do {
             indice = Math.floor(Math.random()*(imagenes_1.length));
         } while (indice==indiceanterior);
-        $("#img-slider").fadeOut(800,function(){
+        $("#img-slider").fadeOut(800,()=>{
             $('#img-slider').attr('src','../img/'+imagenes_1[indice]);
             $("#img-slider").fadeIn(800);                        
             indiceanterior = indice;
