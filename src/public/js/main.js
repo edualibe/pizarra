@@ -68,7 +68,15 @@ $(document).ready(()=>{
         });
     });
 
+    socket.on('pagina:admin',(data)=>{
+        var valoradmin = `
+            <p>${data.sucursal}</p>
+        `;
+        $("#admin").html(valoradmin);
+    });
+
     procesoslider = setInterval(()=>{
+        /*
         do {
             indice = Math.floor(Math.random()*(imagenes_1.length));
         } while (indice==indiceanterior);
@@ -77,6 +85,10 @@ $(document).ready(()=>{
             $("#img-slider").fadeIn(800);                        
             indiceanterior = indice;
         });
+        */
+       indice = Math.floor(Math.random()*(imagenes_1.length));
+       $('#img-slider').attr('src','../img/'+imagenes_1[indice]);
+
     },10000);
 
 });

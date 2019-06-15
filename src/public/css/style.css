@@ -134,3 +134,9 @@ body {
 	padding: 8px;
 	outline: none;
 }
+
+.wraper {
+	width: 960px;
+	height: 500px;
+	background-color: red;
+}
