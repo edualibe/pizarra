@@ -1,12 +1,14 @@
 @charset "utf-8";
 
 * {
+	/*
 	margin: 0 auto;
 	padding: 0;
 	color: white;
 	font-family: Tahoma, Arial, Helvetica, sans-serif;
     font-size: 16px; 
 	font-weight: bold;
+	*/
 	box-sizing: border-box;
 }
 
@@ -15,7 +17,7 @@ body {
 	overflow: hidden;
 	width: 100vw;
 	height: 100vh;
-	display: flex;
+	/*display: flex;*/
 }
 
 .contenedor-principal {
@@ -56,6 +58,10 @@ body {
 	position: relative;
 	float: right;
 	display: block;
+	color: white;
+    font-size: 16px; 
+	font-weight: bold;
+
 }
 
 /*Configuracion tabla cotizador que se encuentra en el encabezado*/
@@ -97,46 +103,6 @@ body {
 	width: 100%;
 }
 
-.titulo-login {
-	color: rgba(0,0,0,0.8);
-	text-align: center;
-	font-size: 18px;
-	padding: 2px;
-	margin-top: -5px;
-	margin-bottom: 20px;
-}
-
-.form-login {
-	position: relative;
-	margin: 5% auto;
-	padding: 20px;
-	width: 25vw;
-	min-width: 120px;
-	height: 240px;
-	min-height: 240px;
-	max-height: 900px;
-	border: white 2px solid;
-	background: rgba(217, 240, 198, 0.95);
-	border-radius: 5px;
-}
-
-.form-login input {
-	display: block;
-	width: 100%;
-	margin: 10px auto;
-	padding: 5px;
+.lbl_black {
 	color: black;
-}
-
-.form-login input[type="submit"] {
-	background: #F7971E;
-	border-radius: 10px;
-	padding: 8px;
-	outline: none;
-}
-
-.wraper {
-	width: 960px;
-	height: 500px;
-	background-color: red;
 }

@@ -1,0 +1,20 @@
+<div class="container" style="width: 30vw; margin: 30px auto">
+    <div class="card bg-light">
+        <div class="card-header">
+            <h5 class="lbl_black">Autenticación de Usuario</h5>
+        </div>
+        <div class="card-body">
+            <form name="frm-login" id="frm-login" method="POST" action="/admin/login">
+                <div class="form-group">
+                    <label class="lbl_black" for="username">Usuario:</label>
+                    <input type="text" class="form-control" id="username" name="username" autofocus /required>
+                </div>
+                <div class="form-group">
+                    <label class="lbl_black" for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" /required>
+                </div>
+                <button type="submit" class="btn btn-lg btn-block btn-warning" name="btn-login" id="btn-login">Ingresar</button>
+            </form>
+        </div>
+    </div>
+</div>

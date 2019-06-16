@@ -69,26 +69,22 @@ $(document).ready(()=>{
     });
 
     socket.on('pagina:admin',(data)=>{
-        var valoradmin = `
-            <p>${data.sucursal}</p>
-        `;
-        $("#admin").html(valoradmin);
+
     });
 
     procesoslider = setInterval(()=>{
-        /*
-        do {
-            indice = Math.floor(Math.random()*(imagenes_1.length));
-        } while (indice==indiceanterior);
-        $("#img-slider").fadeOut(800,()=>{
-            $('#img-slider').attr('src','../img/'+imagenes_1[indice]);
-            $("#img-slider").fadeIn(800);                        
-            indiceanterior = indice;
-        });
-        */
-       indice = Math.floor(Math.random()*(imagenes_1.length));
-       $('#img-slider').attr('src','../img/'+imagenes_1[indice]);
-
+        console.log(window.location.pathname);
+        if (window.location.pathname.substr(0,6)!='/admin'){
+            do {
+                indice = Math.floor(Math.random()*(imagenes_1.length));
+            } while (indice==indiceanterior);
+            console.log('cambiando imagen');
+            $("#img-slider").fadeOut(800,()=>{
+                $('#img-slider').attr('src','../img/'+imagenes_1[indice]);
+                $("#img-slider").fadeIn(800);                        
+                indiceanterior = indice;
+            });
+        };                
     },10000);
 
 });

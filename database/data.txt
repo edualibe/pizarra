@@ -1,0 +1,6 @@
+usuario por defecto para admin
+
+username: administrador
+user_fullname: administrador
+user_psw: $2a$10$CeBTsNL3bjsbGaKogH1HfeuH/gZTabS.2dDMBmUu2V/41DM4L.6Gy
+Para ingresar como administrador clave "Pass1234."

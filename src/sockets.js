@@ -32,9 +32,10 @@ function nueva_conexion(socket){
     socket.emit('peticion');
     //queda a la espera de la respuesta del cliente para conocer su url
     socket.on('url:req', async (data_url)=>{ 
-        if (data_url.url != '/admin'){
+        //determina si la ruta no es la del /admin
+        //carga los datos de la sucursal solicitada en la url del cliente
+        if (data_url.url.substr(0,6)!='/admin'){
             //hace consulta de datos a bd
-            console.log(data_url.url);
             const data = await pool.query('SELECT * FROM header WHERE sucursal_id = ?', [id_suc(data_url.url)]);
             if (data.length>0){
                 //crear objeto json con datos encontrados
@@ -87,6 +88,7 @@ function nueva_conexion(socket){
             //emite nuevo evento al cliente pasandole los datos encontrados en la bd para que los muestre en el navegador
             socket.emit('pagina:cargar', data_encabezado);
         } else {
+            //envia datos para cargar la pagina del administrador
             const data_admin = {
                 "sucursal": "Admin"
             };
