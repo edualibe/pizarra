@@ -1,15 +1,24 @@
 {{>menubar}}
 <div class="div-main mt-2 lbl-gral" id="div-pp">
-    <div class="div-body">
-        <label style="font-weight: bold" for="select-type">Seleccione Tipo de Actualización</label>
-        <select class="caja-texto" name="select-type" id="select-type">
-            <option value="group">Actualizacion Grupal</option>
-            <option value="individual">Actualizacion Individual</option>
-        </select>
-        <div class="div-contenido">
+    <div class="div-body mt-2">
+        <div>
+            <div style="display: inline-block">
+                <label style="font-weight: bold" for="select-type">Seleccione Tipo de Actualización: </label>
+                <select class="caja-texto" name="select-type" id="select-type">
+                    <option value="general">Actualizacion General</option>
+                    <option value="group">Actualizacion Grupal</option>
+                    <option value="individual">Actualizacion Individual</option>
+                </select>
+            </div>
+            <div class="ml-3" style="display: inline-block" id="subtipo-actu">
+                <label for="combo-sucursal">Seleccione Sucursal: </label>
+                <select name="combo-sucursal" id="combo-sucursal"></select>
+            </div>
+        </div>
+        <div class="div-contenido mt-3">
             <div id="grupal">
                 <label for="txt_header1">Encabezado 1</label>
-                <input id="txt_header1" type="text" class="caja-texto">
+                <input id="txt_header1" type="text">
             </div>
         </div>
     </div>

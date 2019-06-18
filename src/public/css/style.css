@@ -108,7 +108,7 @@ body {
 }
 
 .div-main{
-	background: #EEF9F8;
+	background: #ABADAD;
 	width: 98vw;
 	margin: auto;
 	border-radius: 5px;
@@ -130,6 +130,8 @@ body {
 
 .div-contenido{
 	background: whitesmoke;
-	width: 97%;
-	height: 97%;
+	width: 99%;
+	height: 99%;
+	padding: 10px;
+	margin: auto;
 }
