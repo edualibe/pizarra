@@ -127,3 +127,9 @@ body {
 	background: #EEF9F8;
 	border-radius: 5px;
 }
+
+.div-contenido{
+	background: whitesmoke;
+	width: 97%;
+	height: 97%;
+}

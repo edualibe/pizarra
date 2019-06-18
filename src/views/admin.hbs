@@ -1,11 +1,16 @@
 {{>menubar}}
 <div class="div-main mt-2 lbl-gral" id="div-pp">
-    <div class="">
+    <div class="div-body">
         <label style="font-weight: bold" for="select-type">Seleccione Tipo de Actualización</label>
         <select class="caja-texto" name="select-type" id="select-type">
             <option value="group">Actualizacion Grupal</option>
             <option value="individual">Actualizacion Individual</option>
         </select>
-
+        <div class="div-contenido">
+            <div id="grupal">
+                <label for="txt_header1">Encabezado 1</label>
+                <input id="txt_header1" type="text" class="caja-texto">
+            </div>
+        </div>
     </div>
 </div>
