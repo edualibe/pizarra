@@ -106,3 +106,24 @@ body {
 .lbl_black {
 	color: black;
 }
+
+.div-main{
+	background: #EEF9F8;
+	width: 98vw;
+	margin: auto;
+	border-radius: 5px;
+	padding: 5px;
+	height: 500px;
+}
+
+.lbl-gral{
+	color: black;
+	font-size: 16px;
+}
+
+.caja-texto{
+	padding: 5px;
+	font-size: 16px;
+	background: #EEF9F8;
+	border-radius: 5px;
+}

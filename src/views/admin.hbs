@@ -1,39 +1,11 @@
-<div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/admin">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Sucursales
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Agregar</a>
-                        <a class="dropdown-item" href="#">Modificar</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Administrador</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Imagenes <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Admin
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Usuarios</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/admin/logout">Cerrar Sesión</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
+{{>menubar}}
+<div class="div-main mt-2 lbl-gral" id="div-pp">
+    <div class="">
+        <label style="font-weight: bold" for="select-type">Seleccione Tipo de Actualización</label>
+        <select class="caja-texto" name="select-type" id="select-type">
+            <option value="group">Actualizacion Grupal</option>
+            <option value="individual">Actualizacion Individual</option>
+        </select>
+
+    </div>
 </div>
