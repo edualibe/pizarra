@@ -57,17 +57,7 @@ $(document).ready(()=>{
         location.reload(true);
     });
 
-    //envia evento al servidor con los datos para actualizar base
-    $("#btn_enviar").click(()=>{
-        console.log('enviando datos al servidor');
-        var val_txt1 = $("#txt_var1").val();
-        var val_txt2 = $("#txt_var2").val();
-        socket.emit('actualizar-base',{
-            valor1: val_txt1,
-            valor2: val_txt2
-        });
-    });
-
+    //escucha el evento que se dispara al cargar la pagina del admin
     socket.on('pagina:admin',(data)=>{
 
     });
@@ -86,5 +76,20 @@ $(document).ready(()=>{
             });
         };                
     },10000);
+
+    //envia evento al servidor con los datos para actualizar base
+    $("#btn_enviar").click(()=>{
+        console.log('enviando datos al servidor');
+        var val_txt1 = $("#txt_var1").val();
+        var val_txt2 = $("#txt_var2").val();
+        socket.emit('actualizar-base',{
+            valor1: val_txt1,
+            valor2: val_txt2
+        });
+    });
+
+    $("#select-type").click(()=>{
+        alert("click en combo seleccion");
+    });
 
 });
