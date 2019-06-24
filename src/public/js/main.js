@@ -88,8 +88,29 @@ $(document).ready(()=>{
         });
     });
 
-    $("#select-type").click(()=>{
-        alert("click en combo seleccion");
+    $("#sub-grupal").show();
+    $("#sub-sucursal").hide();
+
+    $("#select-type").change(()=>{
+        let selection = $("#select-type").val();
+        let subgroup = $("#sub-grupal");
+        let subsuc = $("#sub-sucursal");
+        switch (selection) {
+            case "group":
+                subgroup.show();
+                subsuc.hide();
+                break;
+            case "individual":
+                subgroup.hide();
+                subsuc.show();
+                break;
+            case "general":
+                subgroup.hide();
+                subsuc.hide();
+                break;                
+            default:
+                break;
+        }
     });
 
 });

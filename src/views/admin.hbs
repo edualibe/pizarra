@@ -5,12 +5,16 @@
             <div style="display: inline-block">
                 <label style="font-weight: bold" for="select-type">Seleccione Tipo de Actualización: </label>
                 <select class="caja-texto" name="select-type" id="select-type">
-                    <option value="general">Actualizacion General</option>
-                    <option value="group">Actualizacion Grupal</option>
+                    <option value="group">Actualizacion por Grupos</option>
                     <option value="individual">Actualizacion Individual</option>
+                    <option value="general">Actualizacion General</option>
                 </select>
             </div>
-            <div class="ml-3" style="display: inline-block" id="subtipo-actu">
+            <div class="ml-3" id="sub-grupal">
+                <label for="combo-sucursal">Seleccione Grupo: </label>
+                <select name="combo-grupo" id="combo-grupo"></select>
+            </div>
+            <div class="ml-3" id="sub-sucursal">
                 <label for="combo-sucursal">Seleccione Sucursal: </label>
                 <select name="combo-sucursal" id="combo-sucursal"></select>
             </div>
