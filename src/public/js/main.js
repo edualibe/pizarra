@@ -59,7 +59,7 @@ $(document).ready(()=>{
 
     //escucha el evento que se dispara al cargar la pagina del admin
     socket.on('pagina:admin',(data)=>{
-
+        console.log(data);
     });
 
     procesoslider = setInterval(()=>{
