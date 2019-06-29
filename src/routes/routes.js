@@ -14,13 +14,12 @@ router.get('/admin/login',isActivesession,(req,res)=>{
     res.render('login.hbs');
 });
 
-/*
+
 router.get('/admin/main',isLoggedIn, async (req,res)=>{
-    const data = await pool.query('SELECT * FROM group WHERE group_id = ?', [1]);
+    const data = await pool.query('SELECT * FROM team');
     console.log(data);
     res.render('admin.hbs');
 });
-*/
 
 router.post('/admin/login', passport.authenticate('local-signin', {
     successRedirect: '/admin/main',
