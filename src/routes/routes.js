@@ -16,9 +16,9 @@ router.get('/admin/login',isActivesession,(req,res)=>{
 
 
 router.get('/admin/main',isLoggedIn, async (req,res)=>{
-    const data = await pool.query('SELECT * FROM team');
-    console.log(data);
-    res.render('admin.hbs');
+    const data_team = await pool.query('SELECT * FROM team');
+    const data_sucursal = await pool.query('SELECT * FROM sucursal');
+    res.render('admin.hbs',{ data_team,data_sucursal });
 });
 
 router.post('/admin/login', passport.authenticate('local-signin', {

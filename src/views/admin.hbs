@@ -12,11 +12,19 @@
             </div>
             <div class="ml-3" id="sub-grupal">
                 <label for="combo-sucursal">Seleccione Grupo: </label>
-                <select name="combo-grupo" id="combo-grupo"></select>
+                <select class="caja-texto" name="combo-grupo" id="combo-grupo">
+                    {{#each data_team}}
+                        <option value="{{team_id}}">{{team_name}}</option>
+                    {{/each}}
+                </select>
             </div>
             <div class="ml-3" id="sub-sucursal">
                 <label for="combo-sucursal">Seleccione Sucursal: </label>
-                <select name="combo-sucursal" id="combo-sucursal"></select>
+                <select class="caja-texto" name="combo-sucursal" id="combo-sucursal">
+                    {{#each data_sucursal}}
+                        <option value="{{sucursal_id}}">{{sucursal_name}}</option>
+                    {{/each}}
+                </select>
             </div>
         </div>
         <div class="div-contenido mt-3">
