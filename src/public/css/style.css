@@ -108,7 +108,7 @@ body {
 }
 
 .div-main{
-	background: #ABADAD;
+	background: rgb(237, 238, 238);
 	width: 98vw;
 	margin: auto;
 	border-radius: 5px;
@@ -129,7 +129,7 @@ body {
 }
 
 .div-contenido{
-	background: whitesmoke;
+	background: rgb(207, 207, 207);
 	width: 99%;
 	height: 99%;
 	padding: 10px;
