@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+//conexion a la bd
+const pool = require('../database.js');
 
 const { isLoggedIn, isActivesession } = require('../passport/validate-route.js');
 
@@ -12,7 +14,9 @@ router.get('/admin/login',isActivesession,(req,res)=>{
     res.render('login.hbs');
 });
 
-router.get('/admin/main',isLoggedIn,(req,res)=>{
+router.get('/admin/main',isLoggedIn, async (req,res)=>{
+    const data = await pool.query('SELECT * FROM group WHERE group_id = ?', [1]);
+    console.log(data);
     res.render('admin.hbs');
 });
 

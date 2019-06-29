@@ -87,14 +87,6 @@ function nueva_conexion(socket){
             };
             //emite nuevo evento al cliente pasandole los datos encontrados en la bd para que los muestre en el navegador
             socket.emit('pagina:cargar', data_encabezado);
-        } else {
-            //envia datos para cargar la pagina del administrador
-            const grupos = await pool.query('SELECT * FROM group',);
-            
-            const data_admin = {
-                "sucursal": "Admin"
-            };
-            socket.emit('pagina:admin', data_admin);
         };
     });            
 };

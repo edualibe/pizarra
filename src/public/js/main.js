@@ -57,11 +57,6 @@ $(document).ready(()=>{
         location.reload(true);
     });
 
-    //escucha el evento que se dispara al cargar la pagina del admin
-    socket.on('pagina:admin',(data)=>{
-
-    });
-
     procesoslider = setInterval(()=>{
         console.log(window.location.pathname);
         if (window.location.pathname.substr(0,6)!='/admin'){
