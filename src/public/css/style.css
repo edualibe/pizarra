@@ -46,7 +46,7 @@ body {
 	position: relative;
 	float: left;
     display: block;
-    /* background: url(/img/logo.png) no-repeat left; */
+    background: url(/img/logo.png) no-repeat left;
     background-size: 90% 40%;
     margin-top: -10px;
 }

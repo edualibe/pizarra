@@ -1,0 +1,36 @@
+<div class="div-main mt-2 lbl-gral" id="div-pp">
+    <div class="div-body mt-2">
+        <div class="div-contenido">
+            <div style="display: inline-block">
+                <label style="font-weight: bold" for="select-type">Seleccione Tipo de Actualización: </label>
+                <select class="caja-texto" name="select-type" id="select-type">
+                    <option value="group">Actualizacion por Grupos</option>
+                    <option value="individual">Actualizacion Individual</option>
+                    <option value="general">Actualizacion General</option>
+                </select>
+            </div>
+            <div class="ml-3" id="sub-grupal">
+                <label for="combo-sucursal">Seleccione Grupo: </label>
+                <select class="caja-texto" name="combo-grupo" id="combo-grupo">
+                    {{#each data_team}}
+                        <option value="{{team_id}}">{{team_name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="ml-3" id="sub-sucursal">
+                <label for="combo-sucursal">Seleccione Sucursal: </label>
+                <select class="caja-texto" name="combo-sucursal" id="combo-sucursal">
+                    {{#each data_sucursal}}
+                        <option value="{{sucursal_id}}">{{sucursal_name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <div class="div-contenido mt-3">
+            <div id="grupal">
+                <label for="txt_header1">Encabezado 1</label>
+                <input id="txt_header1" type="text">
+            </div>
+        </div>
+    </div>
+</div>

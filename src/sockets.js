@@ -5,9 +5,9 @@ module.exports = function(io){
 
     //escuchando conexion del socket
     io.sockets.on('connection', (socket) => {
-        console.log('Nuevo cliente conectado');
+        //ejecuta funcion que envia peticion de url al cliente y escucha su resp para consultar en bd y enviarle los datos correspondientes al cliente
         nueva_conexion(socket);
-
+        
         //escuchando evento de actualizacion en bd desde el modulo admin
         socket.on('actualizar-base', async (data)=>{
             //actualizar base de datos con los parametros recibidos en data
@@ -34,7 +34,7 @@ function nueva_conexion(socket){
     socket.on('url:req', async (data_url)=>{ 
         //determina si la ruta no es la del /admin
         //carga los datos de la sucursal solicitada en la url del cliente
-        if (data_url.url.substr(0,6)!='/admin'){
+        if (data_url.url.substr(0,6)!='/admin'){ //si el cliente ingresa al menu de admin esa ruta es manejada por routes.js
             //hace consulta de datos a bd para enviar datos a la url que se conecto
             const data = await pool.query('SELECT * FROM header WHERE sucursal_id = ?', [id_suc(data_url.url)]);
             if (data.length>0){

@@ -7,6 +7,7 @@ var imagenes_3 = [];
 
 $(document).ready(()=>{
 
+    //inicializa conexion con socketio
     const socket = io();
 
     //escucha solicitud del servidor y le responde con la url actual del cliente
@@ -21,7 +22,7 @@ $(document).ready(()=>{
         imagenes_1 = [];
         imagenes_1 = data.img_1;
         $("#img-slider").fadeOut(500);
-        $('#img-slider').attr('src','../img/'+imagenes_1[0]);
+        $('#img-slider').attr("src","/img/"+imagenes_1[0]);
         $("#img-slider").fadeIn(500);        
         var tabla = `
             <table class="tabla-cotizador">
@@ -50,7 +51,7 @@ $(document).ready(()=>{
         `;
         $('#contenedor-cotizador').html(tabla);    
     });
-
+    
     //evento que escucha orden de recargar la pagina para actualizar datos en pantalla
     socket.on('pagina:recargar',()=>{
         console.log('recargando pagina');
@@ -63,9 +64,8 @@ $(document).ready(()=>{
             do {
                 indice = Math.floor(Math.random()*(imagenes_1.length));
             } while (indice==indiceanterior);
-            console.log('cambiando imagen');
             $("#img-slider").fadeOut(800,()=>{
-                $('#img-slider').attr('src','../img/'+imagenes_1[indice]);
+                $("#img-slider").attr("src","/img/"+imagenes_1[indice]);
                 $("#img-slider").fadeIn(800);                        
                 indiceanterior = indice;
             });
@@ -82,6 +82,7 @@ $(document).ready(()=>{
             valor2: val_txt2
         });
     });
+    
 
     $("#sub-grupal").show();
     $("#sub-sucursal").hide();
