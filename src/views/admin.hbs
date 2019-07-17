@@ -1,18 +1,35 @@
+<link rel="stylesheet" href="/css/style_admin.css">
 {{>menubar}}
-<div class="container p-4">
+<div class="container p-1">
     <div class="row">
         {{#each data_sucursales}}
-        <div class="col-md-3">
-            <div class="card text-center">
+        <div class="col-md-12 p-1">
+            <div class="card">
                 <div class="card-body">
-                    <p class="m-2">{{sucursal_name}}</p>
-                    <p class="m-2">{{team_name}}</p>
-                    <p class="text-muted">
-                        {{header_title1}}
-                    </p>
-                    <a class="btn btn-secondary" href="/admin/edit/{{header_id}}">
-                        Editar
-                    </a>
+                    <p class="m-1 lbl-card"> &nbsp; Sucursal: {{sucursal_name}} &nbsp;-&nbsp; Código Suc: {{sucursal_id}} &nbsp; > &nbsp;  Grupo: {{team_name}}</p>
+                    <table class="tabla-cotizador">
+                    <thead>
+                        <td colspan="2">{{header_title1}}</td>
+                        <td colspan="2">{{header_title2}}</td>
+                        <td colspan="2">{{header_title3}}</td>
+                    </thead>
+                    <tr>
+                        <td>{{header_subtitle1_1}}</td>
+                        <td>{{header_subtitle1_2}}</td>
+                        <td>{{header_subtitle2_1}}</td>
+                        <td>{{header_subtitle2_2}}</td>
+                        <td>{{header_subtitle3_1}}</td>
+                        <td>{{header_subtitle3_2}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{header_value1_1}}</td>
+                        <td>{{header_value1_2}}</td>
+                        <td>{{header_value2_1}}</td>
+                        <td>{{header_value2_2}}</td>
+                        <td>{{header_value3_1}}</td>
+                        <td>{{header_value3_2}}</td>
+                    </tr>
+                    </table>
                 </div>
             </div>
         </div>

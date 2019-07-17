@@ -1,9 +1,36 @@
+<link rel="stylesheet" href="/css/style.css">
 <div class="contenedor-principal">
     <div class="contenedor-encabezado">
         <div class="contenedor-logo" id="contenedor-logo"></div>
-        <div class="contenedor-cotizador" id="contenedor-cotizador"></div>
+        <div class="contenedor-cotizador" id="contenedor-cotizador">
+            <table class="tabla-cotizador">
+            <thead>
+                <td colspan="2">{{data_encabezado.thead1}}</td>
+                <td colspan="2">{{data_encabezado.thead2}}</td>
+                <td colspan="2">{{data_encabezado.thead3}}</td>
+            </thead>
+            <tr>
+                <td>{{data_encabezado.sub_thead1_1}}</td>
+                <td>{{data_encabezado.sub_thead1_2}}</td>
+                <td>{{data_encabezado.sub_thead2_1}}</td>
+                <td>{{data_encabezado.sub_thead2_2}}</td>
+                <td>{{data_encabezado.sub_thead3_1}}</td>
+                <td>{{data_encabezado.sub_thead3_2}}</td>
+            </tr>
+            <tr>
+                <td>{{data_encabezado.valor1_1}}</td>
+                <td>{{data_encabezado.valor1_2}}</td>
+                <td>{{data_encabezado.valor2_1}}</td>
+                <td>{{data_encabezado.valor2_2}}</td>
+                <td>{{data_encabezado.valor3_1}}</td>
+                <td>{{data_encabezado.valor3_2}}</td>
+            </tr>
+            </table>
+        </div>
     </div>
     <div class="contenedor-slider" id="contenedor-slider">
-        <img id="img-slider" class="img-slider">
+        {{#each imagenes_1}}
+            <img src="/img/{{this}}" class="img-slider">
+        {{/each}}
     </div>
 </div>

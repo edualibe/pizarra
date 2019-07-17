@@ -6,7 +6,7 @@ module.exports = function(io){
     //escuchando conexion del socket
     io.sockets.on('connection', (socket) => {
         //ejecuta funcion que envia peticion de url al cliente y escucha su resp para consultar en bd y enviarle los datos correspondientes al cliente
-        nueva_conexion(socket);
+        //nueva_conexion(socket);
         
         //escuchando evento de actualizacion en bd desde el modulo admin
         socket.on('actualizar-base', async (data)=>{

@@ -1,15 +1,15 @@
 var procesoslider;
-var indice=0;
-var indiceanterior=0;
-var imagenes_1 = [];
-var imagenes_2 = [];
-var imagenes_3 = [];
+var indice=1;
+var indiceanterior=1;
 
 $(document).ready(()=>{
+    imagenes = $(".img-slider");
+    $(".img-slider").hide();
+    $(".img-slider:first").fadeIn(500);
 
     //inicializa conexion con socketio
     const socket = io();
-
+    /*
     //escucha solicitud del servidor y le responde con la url actual del cliente
     socket.on('peticion', async ()=>{
         socket.emit('url:req',{
@@ -17,6 +17,9 @@ $(document).ready(()=>{
         });
     });
 
+    */
+
+    /*
     //escucha evento de carga de pagina recibiendo datos del servidor que seran mostrados en la pantalla del cliente
     socket.on('pagina:cargar', (data)=>{
         imagenes_1 = [];
@@ -57,21 +60,20 @@ $(document).ready(()=>{
         console.log('recargando pagina');
         location.reload(true);
     });
-
+    */
+    
     procesoslider = setInterval(()=>{
-        console.log(window.location.pathname);
+        //console.log(window.location.pathname);
         if (window.location.pathname.substr(0,6)!='/admin'){
             do {
-                indice = Math.floor(Math.random()*(imagenes_1.length));
-            } while (indice==indiceanterior);
-            $("#img-slider").fadeOut(800,()=>{
-                $("#img-slider").attr("src","/img/"+imagenes_1[indice]);
-                $("#img-slider").fadeIn(800);                        
-                indiceanterior = indice;
-            });
+                indice = Math.floor(Math.random()*(imagenes.length));
+            } while (indice==indiceanterior || indice==0);
+            $(".img-slider").fadeOut();
+            indiceanterior = indice;
+            $(".img-slider:nth-child("+indice+")").fadeIn();
         };                
     },10000);
-
+    
     //envia evento al servidor con los datos para actualizar base
     $("#btn_enviar").click(()=>{
         console.log('enviando datos al servidor');
