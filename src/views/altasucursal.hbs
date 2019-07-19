@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="/css/style_admin.css">
+{{>menubar}}
+<div class="container" style="width: 30vw; margin: 30px auto">
+    <div class="card bg-light">
+        <div class="card-header">
+            <h5 class="lbl_black">Alta de Sucursal</h5>
+        </div>
+        <div class="card-body">
+            <form name="frm-altasucursal" id="frm-altasucursal" method="POST" action="/admin/altasucursal">
+                <div class="form-group">
+                    <label class="lbl_black" for="sucursal_id">Codigo Suc::</label>
+                    <input type="text" class="form-control" id="sucursal_id" name="sucursal_id" autofocus /required>
+                </div>
+                <div class="form-group">
+                    <label class="lbl_black" for="sucursal_name">Sucursal:</label>
+                    <input type="text" class="form-control" id="sucursal_name" name="sucursal_name" /required>
+                </div>
+                <button type="submit" class="btn btn-lg btn-block btn-warning" name="btn-aceptar" id="btn-aceptar">Aceptar</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -90,4 +90,8 @@ router.get('/admin/logout', (req, res) => {
     res.redirect('/admin/login');
 });
 
+router.get('/altasucursal',isLoggedIn, (req,res)=>{
+    res.render('altasucursal.hbs');
+});
+
 module.exports = router;
