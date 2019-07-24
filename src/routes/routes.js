@@ -8,20 +8,14 @@ const { isLoggedIn, isActivesession } = require('../passport/validate-route.js')
 
 router.get('/suc/:id_suc', async (req,res)=>{
     const { id_suc } = req.params;
-
     const data = await pool.query('SELECT * FROM header WHERE sucursal_id = ?', [id_suc]);
     if (data.length>0){
         console.log(data);
-        //crear objeto json con datos encontrados
-        /*
-        const row_img_1 = (data[0].header_content_1).split(',');
-        const row_img_2 = (data[0].header_content_2).split(',');
-        const row_img_3 = (data[0].header_content_3).split(',');
-        */
         var imagenes_1, imagenes_2, imagenes_3 = [];
         imagenes_1 = (data[0].header_content_1).split(',');
         imagenes_2 = (data[0].header_content_2).split(',');
         imagenes_3 = (data[0].header_content_3).split(',');
+        //crear objeto json con datos encontrados
         var data_encabezado = {
             "thead1": data[0].header_title1,
             "thead2": data[0].header_title2,
@@ -90,8 +84,9 @@ router.get('/admin/logout', (req, res) => {
     res.redirect('/admin/login');
 });
 
-router.get('/altasucursal',isLoggedIn, (req,res)=>{
-    res.render('altasucursal.hbs');
+router.get('/admin/altasucursal',isLoggedIn, async (req,res)=>{
+    const data_team = await pool.query('SELECT * FROM team');
+    res.render('altasucursal.hbs',{ data_team });
 });
 
 module.exports = router;
