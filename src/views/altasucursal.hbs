@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/css/style_admin.css">
 {{>menubar}}
-<div class="container" style="width: 35vw; margin: 30px auto">
+<div id="contenedor-altasucursal" class="container" style="width: 35vw; margin: 30px auto">
     <div class="card bg-light">
         <div class="card-header">
             <h5 class="lbl_black">Alta de Sucursal</h5>
@@ -9,14 +9,14 @@
             <form name="frm-altasucursal" id="frm-altasucursal" method="POST" action="/admin/altasucursal">
                 <div class="form-group">
                     <label class="lbl_black" for="sucursal_id">Codigo de Sucursal:</label>
-                    <input type="text" class="form-control" id="sucursal_id" name="sucursal_id" autofocus /required>
+                    <input type="text" class="form-control" id="sucursal_id" name="sucursal_id" /required autofocus>
                 </div>
                 <div class="form-group">
                     <label class="lbl_black" for="sucursal_name">Nombre de Sucursal:</label>
                     <input type="text" class="form-control" id="sucursal_name" name="sucursal_name" /required>
                 </div>
                 <div class="form-group">
-                    <label class="lbl_black" for="combo_grupo">Grupo de Sucursal:</label><label><a class="btnm" href="/admin/altagrupo">+</a></label>
+                    <label class="lbl_black" for="combo_grupo">Grupo de Sucursal:</label><button id="btn-agregargrupo" type="button" class="btnm">+</button>
                     <select class="form-control" name="combo_grupo" id="combo_grupo">
                         {{#each data_team}}
                             <option value="{{team_id}}">{{team_name}}</option>

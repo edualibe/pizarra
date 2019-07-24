@@ -1,2 +1,18 @@
 <link rel="stylesheet" href="/css/style_admin.css">
 {{>menubar}}
+<div id="contenedor-altagrupo" class="container" style="width: 35vw; margin: 30px auto">
+    <div class="card bg-light">
+        <div class="card-header">
+            <h5 class="lbl_black">Agregar Nuevo Grupo</h5>
+        </div>
+        <div class="card-body">
+            <form name="frm-altagrupo" id="frm-altagrupo" method="POST" action="/admin/altagrupo">
+                <div class="form-group">
+                    <label class="lbl_black" for="team_name">Nombre de Grupo:</label><button id="btn-atrasgrupo" type="button" class="btnm"><-</button>
+                    <input type="text" class="form-control" id="team_name" name="team_name" /required autofocus>
+                </div>
+                <button type="submit" class="btn btn-lg btn-block btn-warning" name="btn-aceptar" id="btn-aceptar">Aceptar</button>
+            </form>
+        </div>
+    </div>
+</div>

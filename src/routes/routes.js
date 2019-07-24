@@ -89,4 +89,21 @@ router.get('/admin/altasucursal',isLoggedIn, async (req,res)=>{
     res.render('altasucursal.hbs',{ data_team });
 });
 
+router.get('/admin/altagrupo', isLoggedIn, (req,res)=>{
+    res.render('altagrupo.hbs');
+});
+
+router.post('/admin/altagrupo', async (req,res)=>{
+    const { team_name } = req.body;
+    const data_team = await pool.query('SELECT * FROM team WHERE team_name = ?', [team_name]);
+    console.log(data_team.length);
+    if (data_team.length==0){
+        const nuevoregistro = {
+            team_name
+        };
+        await pool.query('INSERT INTO team set ?',[nuevoregistro]);    
+    }
+    res.redirect('/admin/altasucursal');
+});
+
 module.exports = router;

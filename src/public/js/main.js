@@ -74,6 +74,16 @@ $(document).ready(()=>{
         };                
     },10000);
     
+    $("#btn-agregargrupo").click(()=>{
+        window.location = "/admin/altagrupo";
+    });
+
+    $("#btn-atrasgrupo").click(()=>{
+        window.location = "/admin/altasucursal";
+    });
+
+
+
     //envia evento al servidor con los datos para actualizar base
     $("#btn_enviar").click(()=>{
         console.log('enviando datos al servidor');
@@ -85,7 +95,6 @@ $(document).ready(()=>{
         });
     });
     
-
     $("#sub-grupal").show();
     $("#sub-sucursal").hide();
 
