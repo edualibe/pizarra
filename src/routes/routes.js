@@ -106,4 +106,18 @@ router.post('/admin/altagrupo', async (req,res)=>{
     res.redirect('/admin/altasucursal');
 });
 
+router.post('/admin/altasucursal', async (req,res)=>{
+    const { sucursal_id, sucursal_name, team_id } = req.body;
+    const nueva_sucursal = {
+        sucursal_id,
+        sucursal_name,
+        team_id
+    };
+    const data_suc = await pool.query('SELECT sucursal_id, sucursal_name FROM sucursal WHERE sucursal_id = ? OR sucursal_name = ?',[sucursal_id, sucursal_name]);
+    if (data_suc.length==0){
+        await pool.query('INSERT INTO sucursal set ?',[nueva_sucursal]);
+    }
+    res.render('cargadatossuc.hbs',{sucursal_id});
+});
+
 module.exports = router;
