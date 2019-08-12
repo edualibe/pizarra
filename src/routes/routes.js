@@ -118,7 +118,9 @@ router.post('/admin/altasucursal', async (req,res)=>{
     if (data_suc.length==0){
         await pool.query('INSERT INTO sucursal set ?',[nueva_sucursal]);
     }
-    res.render('cargadatossuc.hbs',{sucursal_id, sucursal_name, team_id});
+    const data_team_name = await pool.query('SELECT team_name FROM team WHERE team_id = ?',[team_id]);
+    const team_name = data_team_name[0].team_name;
+    res.render('cargadatossuc.hbs',{sucursal_id, sucursal_name, team_name});
 });
 
 module.exports = router;
