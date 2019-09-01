@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/css/style_admin.css">
 {{>menubar}}
-<div class="container p-1">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-12 p-1">
             <div class="card">
@@ -8,40 +8,65 @@
                     <p class="m-1 lbl-card"> &nbsp; Sucursal: {{sucursal_name}} &nbsp;-&nbsp; Código Suc: {{sucursal_id}} &nbsp; > &nbsp;  Grupo: {{team_name}}</p>
                 </div>
                 <div class="table-responsive">
-
-                    <table class="table w-auto">
+                    <table class="table-custom table">
                         <thead>
-                            <td>Titulo 1</td>
-                            <td>Titulo 2</td>
-                            <td></td>Titulo 3</td>
+                            <tr style="text-align: center">
+                                <th scope="col" colspan="2">Titulo Encabezado 1</th>
+                                <th scope="col" colspan="2">Titulo Encabezado 2</th>
+                                <th scope="col" colspan="2">Titulo Encabezado 3</th>
+                            </tr>
                         </thead>
-                        <tr>
-                            <td><input type="text" name="header_title1" id="header_title1"></td>
-                            <td><input type="text" name="header_title2" id="header_title2"></td>
-                            <td><input type="text" name="header_title3" id="header_title3"></td>
-                        </tr>
-                        <tr>
-                            <td>Sub-Titulo 1-1</td>
-                            <td>Sub-Titulo 1-2</td>
-                            <td>Sub-Titulo 2-1</td>
-                            <td>Sub-Titulo 2-2</td>
-                            <td>Sub-Titulo 3-1</td>
-                            <td>Sub-Titulo 3-2</td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="" id=""></td>
-                            <td><input type="text" name="" id=""></td>
-                            <td><input type="text" name="" id=""></td>
-                            <td><input type="text" name="" id=""></td>
-                            <td><input type="text" name="" id=""></td>
-                            <td><input type="text" name="" id=""></td>
-                        </tr>
+                        <tbody>
+                            <tr style="text-align: center">
+                                <td scope="col" colspan="2"><input type="text" class="form-control" name="header_title1" id="header_title1"></td>
+                                <td scope="col" colspan="2"><input type="text" class="form-control" name="header_title2" id="header_title2"></td>
+                                <td scope="col" colspan="2"><input type="text" class="form-control" name="header_title3" id="header_title3"></td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr style="text-align: center">
+                                <th scope="col">Sub-Titulo 1-1</th>
+                                <th scope="col">Sub-Titulo 1-2</th>
+                                <th scope="col">Sub-Titulo 2-1</th>
+                                <th scope="col">Sub-Titulo 2-2</th>
+                                <th scope="col">Sub-Titulo 3-1</th>
+                                <th scope="col">Sub-Titulo 3-2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="text-align: center">
+                                <td><input class="form-control" type="text" name="header_subtitle1_1" id="header_subtitle1_1"></td>
+                                <td><input class="form-control" type="text" name="header_subtitle1_2" id="header_subtitle1_2"></td>
+                                <td><input class="form-control" type="text" name="header_subtitle2_1" id="header_subtitle2_1"></td>
+                                <td><input class="form-control" type="text" name="header_subtitle2_2" id="header_subtitle2_2"></td>
+                                <td><input class="form-control" type="text" name="header_subtitle3_1" id="header_subtitle3_1"></td>
+                                <td><input class="form-control" type="text" name="header_subtitle3_2" id="header_subtitle3_2"></td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr style="text-align: center">
+                                <th scope="col">Valor Sub 1-1</th>
+                                <th scope="col">Valor Sub 1-2</th>
+                                <th scope="col">Valor Sub 2-1</th>
+                                <th scope="col">Valor Sub 2-2</th>
+                                <th scope="col">Valor Sub 3-1</th>
+                                <th scope="col">Valor Sub 3-2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input class="form-control" type="text" name="header_value1_1" id="header_value1_1"></td>
+                                <td><input class="form-control" type="text" name="header_value1_2" id="header_value1_2"></td>
+                                <td><input class="form-control" type="text" name="header_value2_1" id="header_value2_1"></td>
+                                <td><input class="form-control" type="text" name="header_value2_2" id="header_value2_2"></td>
+                                <td><input class="form-control" type="text" name="header_value3_1" id="header_value3_1"></td>
+                                <td><input class="form-control" type="text" name="header_value3_2" id="header_value3_2"></td>
+                            </tr>
+                        </tbody>
+
+
                     </table>
-
-
                 </div>
-
-
             </div>
         </div>
     </div>

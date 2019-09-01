@@ -91,7 +91,7 @@ body {
 .lbl-card {
 	font-size: 20px;
 	font-weight: bold;
-	background: orange;
+	background: RGB(234,170,0);
 	padding: 4px;
 	border-radius: 5px;
 }
@@ -101,6 +101,15 @@ body {
 	border-radius: 10px;
 }
 
-.tabla-alta{
-	width: 100%;
+.table-custom{
+	border-collapse: collapse;
+	border-radius: 5px;
+}
+
+.table-custom thead, th, tbody, tr, td{
+	border:black solid 2px;
+}
+
+.table-custom thead{
+	background-color: RGB(234,170,0);
 }
